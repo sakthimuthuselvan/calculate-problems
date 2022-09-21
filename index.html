@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+    <style>
+        .container{
+            width: 1000px;
+            margin: auto;
+        }
+        div{
+            text-align: center;
+        }
+        .range-div{
+            padding-top: 30px;
+        }
+        #box{
+            width: 200px;
+            border: 2px solid rgb(150, 150, 150);
+            border-radius: 10px;
+    
+        }
+        .easy{
+            display: flex;
+            flex-wrap: wrap;
+        }
+    </style>
+    </head>
+<body>
+    <div class="container">
+    <div>
+        <h1>mathemic project</h1>
+        <select name="" id="operators">
+            <option value="add">add</option>
+            <option value="sub">sub</option>
+            <option value="multiply">multi</option>
+            <option value="divide">division</option>
+        </select>
+    </div>  
+    <div class="range-div">
+        <select name="" id="range">
+            <option value="9">1 - 9</option>
+            <option value="19">1 - 19</option>
+            <option value="29">1 - 29</option>
+            <option value="39">1 -39</option>
+            <option value="49">1 - 49</option>
+        </select><br><br>
+        <button id="btn">Enter</button> 
+        <div id="sakthi">    
+            <!-- <div id="box">
+            <h3>23</h3>
+            <h3>+</h3>
+            <h3>22</h3>
+            <hr>
+            <input type="text" id="box-input">
+            <hr>
+        </div> -->
+        </div>
+    </div>
+    
+    <!-- <input type="number" id="number"> -->
+</div>
+<script>
+    var btn=document.getElementById("btn");
+    var sakthi=document.getElementById("sakthi"),
+        range=document.getElementById("range");
+        console.log(operators);
+        sakthi.className+="easy"
+           
+        let arr=["red","blue","green","yellow","gray","powderblue","skyblue"];
+            let b=0;
+        
+        
+        function randamnumber(a){
+        let sak= parseInt(Math.random()*a);
+          return sak;
+    }
+
+    function act(operators){
+            if(operators=="add"){
+                return "+"
+            }else if(operators=="sub"){
+                return "-"
+            }else if(operators=="multi"){
+                return "*";
+            }else{
+                return "/";
+            }
+        }
+
+        
+
+        function add(wow1,wow2,symol){
+        if(symol=="add"){
+            var store1=wow1+wow2;
+            console.log(store1)
+             
+        }else if(symol=="sub"){
+            var store2=wow1-wow2;
+            console.log(store2)
+        }
+    }
+
+
+
+       function update(num1,num2,operators){
+
+        let box=document.createElement("div")
+        box.setAttribute("id","box")
+          box.style.margin="10px 10px"
+          box.style.padding="10px 0px" 
+
+        // let box=document.createElement("div")        
+            
+        let number1=document.createElement("h3");
+        number1.innerText=num1;
+
+        let operatorss=document.createElement("h3")
+        operatorss.innerText=act(operators);
+
+
+        let number2=document.createElement("h3");
+        number2.innerText=num2;
+        var button=document.createElement("button");
+        button.setAttribute("id","m");
+        button.innerText="Done"
+
+        var inputBox=document.createElement("input");
+
+            inputBox.setAttribute("id","input-box")
+            inputBox.setAttribute("type","text");
+            user=inputBox.value;
+
+            box.appendChild(number1)
+            box.appendChild(operatorss)
+            box.appendChild(number2)
+           
+            box.appendChild(inputBox)
+            box.appendChild(button);
+            sakthi.appendChild(box);
+            button.addEventListener("click",function(){
+                 add(one,teo,e);
+
+            })
+       
+        } 
+       
+        
+    let a =function(){
+        var  operators=document.getElementById("operators").value;
+
+        // let number=parseInt (document.getElementById("number").value);
+
+        let ranges=parseInt(range.value);
+
+        var randam1,randam2;
+
+
+       if(operators!=="divide"){
+
+         for(let i=0;i<ranges; i++){
+            
+            randam1=randamnumber(ranges);
+            randam2=randamnumber(ranges);
+            update(randam1,randam2, operators)
+            add(randam1,randam2,operators);
+         }
+       }
+      
+      
+    }
+
+    
+ 
+    btn.addEventListener("click",a)
+   
+
+
+</script>
+      
+</body>
+</html>
