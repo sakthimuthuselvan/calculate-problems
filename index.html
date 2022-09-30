@@ -22,9 +22,16 @@
             border-radius: 10px;
     
         }
-        .easy{
+        .sakthi{
             display: flex;
             flex-wrap: wrap;
+        }
+        
+        .box{
+            margin:10px 10px;
+            padding:10px 10px;
+            border:1px solid;
+            border-radius: 5px;
         }
     </style>
     </head>
@@ -48,7 +55,8 @@
             <option value="49">1 - 49</option>
         </select><br><br>
         <button id="btn">Enter</button> 
-        <div id="sakthi">    
+        <button id="result">result</button>
+        <div class="sakthi">    
             <!-- <div id="box">
             <h3>23</h3>
             <h3>+</h3>
@@ -63,14 +71,13 @@
     <!-- <input type="number" id="number"> -->
 </div>
 <script>
-    var btn=document.getElementById("btn");
-    var sakthi=document.getElementById("sakthi"),
+    var btn=document.getElementById("btn"),
+    result=document.getElementById("result")
+    var sakthi=document.getElementsByClassName("sakthi")[0],
         range=document.getElementById("range");
-        console.log(operators);
-        sakthi.className+="easy"
+
+        // sakthi.className="easy"
            
-        let arr=["red","blue","green","yellow","gray","powderblue","skyblue"];
-            let b=0;
         
         
         function randamnumber(a){
@@ -90,27 +97,20 @@
             }
         }
 
-        
 
-        function add(wow1,wow2,symol){
-        if(symol=="add"){
-            var store1=wow1+wow2;
-            console.log(store1)
-             
-        }else if(symol=="sub"){
-            var store2=wow1-wow2;
-            console.log(store2)
-        }
-    }
+      
 
 
 
        function update(num1,num2,operators){
 
         let box=document.createElement("div")
-        box.setAttribute("id","box")
-          box.style.margin="10px 10px"
-          box.style.padding="10px 0px" 
+        box.setAttribute("class","divbox");
+        //   box.style.margin="10px 10px"
+        //   box.style.padding="10px 0px" 
+        //   box.style.border="1px solid"
+        box.className="box"
+          console.log(box)
 
         // let box=document.createElement("div")        
             
@@ -123,9 +123,6 @@
 
         let number2=document.createElement("h3");
         number2.innerText=num2;
-        var button=document.createElement("button");
-        button.setAttribute("id","m");
-        button.innerText="Done"
 
         var inputBox=document.createElement("input");
 
@@ -138,12 +135,9 @@
             box.appendChild(number2)
            
             box.appendChild(inputBox)
-            box.appendChild(button);
+            // box.appendChild(button);
             sakthi.appendChild(box);
-            button.addEventListener("click",function(){
-                 add(one,teo,e);
-
-            })
+         
        
         } 
        
@@ -165,16 +159,21 @@
             randam1=randamnumber(ranges);
             randam2=randamnumber(ranges);
             update(randam1,randam2, operators)
-            add(randam1,randam2,operators);
+            
          }
        }
       
       
     }
 
-    
+    function operation1(){
+        let ele=document.getElementsByClassName("divbox");
+        
+    console.log(ele)
+    }
  
     btn.addEventListener("click",a)
+    result.addEventListener("click",operation1)
    
 
 
